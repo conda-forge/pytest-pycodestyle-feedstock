@@ -86,6 +86,7 @@ def main(args=None):
     verify_config(ns)
     setup_environment(ns)
 
+
     try:
         if ns.config.startswith("linux") or (
             ns.config.startswith("osx") and platform.system() == "Linux"
