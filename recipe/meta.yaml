@@ -1,5 +1,5 @@
 {% set name = "pytest-pycodestyle" %}
-{% set version = "2.3.0" %}
+{% set version = "2.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6c0e2a0739c350d4dcffe668b95f63f390fce8b4e67b4fb236208dd6d0cf6530
+  sha256: 2901327b8e6beab90298a9803074483efe560e191bef81d9e18119b141222830
 
 build:
   number: 0
