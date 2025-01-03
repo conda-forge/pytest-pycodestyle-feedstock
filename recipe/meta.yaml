@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: 27cfebd52774ad55cceadce959913892b3b0989fc02400ef76a004a8b32ab5c9
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.6,<4
+    - python {{ python_min }}
     - setuptools
     - pip
   run:
-    - python >=3.6,<4
+    - python >={{ python_min }},<4
     - pytest >=5.4
     - pycodestyle
     - py
@@ -28,6 +28,7 @@ requirements:
 test:
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
     - pytest --traceconfig | grep pytest-pycodestyle-{{ version }}
